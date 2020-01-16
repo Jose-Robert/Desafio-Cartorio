@@ -1,0 +1,74 @@
+[
+	{
+		"nome" : "Cartorio Dornelas Filho",
+		"cnpj" : "20151022014001",
+		"razaoSocial" : "Dornelas S.A",
+		"endereco" : "jose das silva coutinho 270",
+		"telefone" : "833228112"	
+	},
+	{
+		"nome" : "Cartório do Registro Civil ",
+		"cnpj" : "82905408000177",
+		"razaoSocial" : "RENATO LIMA FILHO",
+		"endereco" : "Francisco E . da Fonseca, 23",
+		"telefone" : "822781145"	
+	},
+	{
+		"nome" : "Ofício de Notas, Protestos, Registros de Imóveis, Títulos e Documentos ",
+		"cnpj" : "88997824000129",
+		"razaoSocial" : "KLEBER RÊGO LOUREIRO",
+		"endereco" : "Praça D. Pedro II",
+		"telefone" : "88888888888"	
+	},
+	{
+		"nome" : "Ofício de Registo de Imóveis e Notas "	,
+		"cnpj" : "13144351000118",
+		"razaoSocial" : "JOSÉ EDERALDO DOS SANTOS",
+		"endereco" : "Rua do Comércio",
+		"telefone" : "9752364512"	
+	},
+	{
+		"nome" : "Cartório do Registro Civil do 1º Distrito ",
+		"cnpj" : "41729614000196",
+		"razaoSocial" : "JOSÉ LEANDRO DE LIRA",
+		"endereco" : "Rua Cel. Teotônio",
+		"telefone" : "7854123644"	
+	},
+	{
+		"nome" : "CARTÓRIO DO REGISTRO IMOBILIÁRIO DE CAMPINA GRANDE",
+		"cnpj" : "33905736000168",
+		"razaoSocial" : "Resgistro sa",
+		"endereco" : "rua do tres",
+		"telefone" : "7894621356"	
+	},
+	{
+		"nome" : "Ofício de Not., Prot., Registros de Imóveis, Títulos e Documentos",
+		"cnpj" : "64895345000133",
+		"razaoSocial" : "Registros de Imóveis",
+		"endereco" : "Rua Brasília",
+		"telefone" : "99810851"	
+	},
+	{
+		"nome" : "1º ofício do registro civil e tabelionato de notas",
+		"cnpj" : "00074445000116",
+		"razaoSocial" : "Cartório Azevêdo Bastos",
+		"endereco" : "Av. Pres. Epitácio Pessoa, 1145",
+		"telefone" : "32445404"	
+	},
+	{
+		"nome" : "Tabelionato de notas, protestos e anexos",
+		"cnpj" : "27027742000167",
+		"razaoSocial" : "Serviço Notarial e Registral",
+		"endereco" : "Rua Cândido Pessoa, 31",
+		"telefone" : "3241-7177"	
+	},
+	{
+		"nome" : "1º Tabelião e Oficial do Registro",
+		"cnpj" : "37463726000170",
+		"razaoSocial" : "Cartório Pedro Ulysses",
+		"endereco" : "Av. Pres. Epitácio Pessoa, 105",
+		"telefone" : "32222280"	
+	}
+	
+]
+
