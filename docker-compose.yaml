@@ -1,0 +1,38 @@
+version: '3'
+services:
+    cartorio:
+      build: 
+        context: .
+        dockerfile: Dockerfile
+      container_name: cartorio-docket
+      restart: always
+      environment:
+      # SETTINGS DATABASE
+         - HOST_DB_POSTGRESQL=postgres
+         - BANCO_URL=jdbc:postgresql://localhost:5432/db_cartorio
+         - BANCO_USERNAME=postgres
+         - BANCO_PASSWORD=admin
+      image: cartorio:0.0.1
+      ports:
+      - 8080:8080
+      depends_on:
+        - postgres
+      links:
+      - postgres:postgres
+    postgres:
+       image: postgres
+       environment:
+         - POSTGRES_DB=db_cartorio
+         - POSTGRES_USER=postgres
+         - POSTGRES_PASSWORD=admin
+       ports:
+         - 5432:5432
+    pgadmin:
+      image: dpage/pgadmin4
+      environment:
+        PGADMIN_DEFAULT_EMAIL: "robert.suporteweb@gmail.com"
+        PGADMIN_DEFAULT_PASSWORD: "admin"
+      ports:
+        - "16543:80"
+      depends_on:
+        - postgres
