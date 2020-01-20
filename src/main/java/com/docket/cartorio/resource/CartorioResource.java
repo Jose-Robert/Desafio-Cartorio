@@ -27,8 +27,8 @@ public class CartorioResource {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Cartorio> searchById(@PathVariable("id") Integer id) throws Exception {
-		Cartorio user = cartorioService.searchById(id);
-		return ResponseEntity.ok(user);
+		Cartorio cartorio = cartorioService.searchById(id);
+		return ResponseEntity.ok(cartorio);
 	}
 	
 	@PostMapping 
