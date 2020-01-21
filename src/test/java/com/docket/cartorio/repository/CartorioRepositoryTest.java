@@ -28,12 +28,12 @@ public class CartorioRepositoryTest {
 		Cartorio cartorio = new Cartorio(null,"jose Robert", "65147331000102", "ROBERT CARTORIO SA", "Rua Airton Senna da Silva, 38","99615-4232");
 		Cartorio cadastrarCartorio = cartorioRepository.save(cartorio);
 		
-		assertThat(cadastrarCartorio.getId().equals(22));
+		assertThat(cadastrarCartorio.getId().equals(11));
 	}
 	
 	@Test
 	public void updateTest() {
-		Cartorio cartorio = new Cartorio(22,"jose Robert Gonçalves", "65147331000102", "ROBERT CARTORIO SA", "Rua Airton Senna da Silva, 38","996154232");
+		Cartorio cartorio = new Cartorio(11,"jose Robert Gonçalves", "65147331000102", "ROBERT CARTORIO SA", "Rua Airton Senna da Silva, 38","996154232");
 		Cartorio atualizarCartorio = cartorioRepository.save(cartorio);
 		
 		assertThat(atualizarCartorio.getNome().equals("jose Robert Gonçalves"));
@@ -41,10 +41,10 @@ public class CartorioRepositoryTest {
 	
 	@Test
 	public void searchByIdTest() {
-		Optional<Cartorio> result = cartorioRepository.findById(12);
+		Optional<Cartorio> result = cartorioRepository.findById(2);
 		Cartorio cartorio = result.get();
 		
-		assertThat(cartorio.getCnpj().equals("27027742000167"));
+		assertThat(cartorio.getCnpj().equals("82905408000177"));
 	}
 	
 	@Test
@@ -56,7 +56,7 @@ public class CartorioRepositoryTest {
 	
 	@Test
 	public void deleteTest() {
-		Optional<Cartorio> cartorio = cartorioRepository.findById(22);
+		Optional<Cartorio> cartorio = cartorioRepository.findById(11);
 		this.cartorioRepository.delete(cartorio.get());
 		
 		assertTrue("Cartorio deletado com Sucesso!", true);

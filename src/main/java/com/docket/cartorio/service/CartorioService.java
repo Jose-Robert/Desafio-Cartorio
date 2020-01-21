@@ -11,6 +11,9 @@ import com.docket.cartorio.exception.ObjectNotFoundException;
 import com.docket.cartorio.model.Cartorio;
 import com.docket.cartorio.repository.CartorioRepository;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @Service
 public class CartorioService {
 
@@ -33,8 +36,10 @@ public class CartorioService {
 			this.cartorioRepository.delete(cartorio.get());
 
 		} catch (Exception e) {
+			log.info("Não foi possivel remover cartorio com identificador " +id);
 			throw new IdentificadorNuloOuInexistenteException(
 					"Não foi possivel remover cartorio para o identificador = " + id);
+			
 		}
 	}
 
@@ -45,6 +50,11 @@ public class CartorioService {
 
 	public Cartorio searchById(Integer id) throws ObjectNotFoundException {
 		Optional<Cartorio> obj = cartorioRepository.findById(id);
+		try {
+			return obj.get();
+		} catch (Exception e) {
+			log.info("Identificado " + id + " não encontrado!!");
+		}
 		return obj.orElseThrow(() -> new ObjectNotFoundException("identificador não encontrado = " + id));
 	}
 }
