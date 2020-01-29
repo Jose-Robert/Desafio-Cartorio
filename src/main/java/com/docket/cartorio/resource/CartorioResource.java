@@ -2,16 +2,15 @@ package com.docket.cartorio.resource;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.docket.cartorio.model.Cartorio;
@@ -25,32 +24,32 @@ public class CartorioResource {
 	private CartorioService cartorioService;
 	
 	
-	@GetMapping("/{id}")
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Cartorio> searchById(@PathVariable("id") Integer id) throws Exception {
 		Cartorio cartorio = cartorioService.searchById(id);
 		return ResponseEntity.ok(cartorio);
 	}
 	
-	@PostMapping 
-	public ResponseEntity<Cartorio> save(@RequestBody Cartorio cartorio){
+	@RequestMapping(method = RequestMethod.POST, produces = "application/json") 
+	public ResponseEntity<Cartorio> save(@Valid @RequestBody Cartorio cartorio){
 		Cartorio createdCartorio = cartorioService.save(cartorio);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdCartorio);
 	}
 	
-	@PutMapping("/{id}")
-	public ResponseEntity<Cartorio> update(@PathVariable(name = "id") Integer id, @RequestBody Cartorio cartorio){
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = "application/json")
+	public ResponseEntity<Cartorio> update(@PathVariable(name = "id") Integer id, @Valid @RequestBody Cartorio cartorio){
 		cartorio.setId(id);
 		Cartorio updateCartorio = cartorioService.save(cartorio);
 		return ResponseEntity.ok(updateCartorio);
 	}
 	
-	@DeleteMapping("/{id}")
-	private ResponseEntity<Cartorio> delete(@PathVariable Integer id){
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	private ResponseEntity<Cartorio> delete(@PathVariable(name = "id") Integer id){
 		cartorioService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
-	@GetMapping
+	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
 	private ResponseEntity<List<Cartorio>> listAll(){
 		List<Cartorio> result = cartorioService.listAll();
 		return ResponseEntity.ok().body(result);
