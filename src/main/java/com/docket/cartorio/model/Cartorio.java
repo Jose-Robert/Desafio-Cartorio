@@ -28,7 +28,6 @@ public class Cartorio implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@ApiModelProperty("Identificador do cartorio")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;

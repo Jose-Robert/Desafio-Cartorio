@@ -37,8 +37,7 @@ public class CartorioService {
 
 		} catch (Exception e) {
 			log.info("Não foi possivel remover cartorio com identificador " +id);
-			throw new IdentificadorNuloOuInexistenteException(
-					"Não foi possivel remover cartorio para o identificador = " + id);
+			throw new IdentificadorNuloOuInexistenteException("Não foi possivel remover cartorio para o identificador = " + id);
 			
 		}
 	}
@@ -55,6 +54,6 @@ public class CartorioService {
 		} catch (Exception e) {
 			log.info("Identificado " + id + " não encontrado!!");
 		}
-		return obj.orElseThrow(() -> new ObjectNotFoundException("identificador não encontrado = " + id));
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Identificado " + id + " não encontrado!!"));
 	}
 }
