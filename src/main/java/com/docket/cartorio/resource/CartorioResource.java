@@ -19,6 +19,8 @@ import com.docket.cartorio.model.Cartorio;
 import com.docket.cartorio.service.CartorioService;
 
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping(value = "cartorios")
@@ -28,6 +30,10 @@ public class CartorioResource {
 	private CartorioService cartorioService;
 	
 	@ApiOperation(value = "Listar cartorios")
+	@ApiResponses(value = {
+	        @ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
+	        @ApiResponse(code = 500, message = "Não foi possivel encontrar o recurso, verifique a requisição"),
+	    })
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
 	private ResponseEntity<List<CartorioDTO>> listAll(){
 		List<Cartorio> result = cartorioService.listAll();
@@ -51,6 +57,10 @@ public class CartorioResource {
 	}
 	
 	@ApiOperation(value = "Excluir cartorios")
+	@ApiResponses(value = {
+	        @ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
+	        @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
+	    })
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
 	private ResponseEntity<Cartorio> delete(@PathVariable(name = "id") Integer id){
 		cartorioService.delete(id);
@@ -58,6 +68,10 @@ public class CartorioResource {
 	}
 	
 	@ApiOperation(value = "Retornar um cartorio pelo identificado")
+	@ApiResponses(value = {
+	        @ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
+	        @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
+	    })
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Cartorio> searchById(@PathVariable("id") Integer id) throws Exception {
 		Cartorio cartorio = cartorioService.searchById(id);
