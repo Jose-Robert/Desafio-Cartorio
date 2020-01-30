@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.docket.cartorio.dto.CartorioDTO;
 import com.docket.cartorio.exception.IdentificadorNuloOuInexistenteException;
 import com.docket.cartorio.exception.ObjectNotFoundException;
 import com.docket.cartorio.model.Cartorio;
@@ -56,4 +57,9 @@ public class CartorioService {
 		}
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Identificado " + id + " não encontrado!!"));
 	}
+	
+	public Cartorio fromDTO(CartorioDTO dto) {
+		return new Cartorio(dto.getId(), dto.getNome(),null, null, null, null);
+	}
+	
 }

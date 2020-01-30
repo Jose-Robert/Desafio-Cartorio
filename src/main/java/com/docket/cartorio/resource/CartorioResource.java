@@ -1,6 +1,7 @@
 package com.docket.cartorio.resource;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.docket.cartorio.dto.CartorioDTO;
 import com.docket.cartorio.model.Cartorio;
 import com.docket.cartorio.service.CartorioService;
 
@@ -27,9 +29,10 @@ public class CartorioResource {
 	
 	@ApiOperation(value = "Listar cartorios")
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
-	private ResponseEntity<List<Cartorio>> listAll(){
+	private ResponseEntity<List<CartorioDTO>> listAll(){
 		List<Cartorio> result = cartorioService.listAll();
-		return ResponseEntity.ok().body(result);
+		List<CartorioDTO> listDto = result.stream().map(obj -> new CartorioDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDto);
 	}
 	
 	@ApiOperation(value = "Cadastrar novos cartorios")
@@ -60,6 +63,5 @@ public class CartorioResource {
 		Cartorio cartorio = cartorioService.searchById(id);
 		return ResponseEntity.ok(cartorio);
 	}
-	
  	
 }
